@@ -44,28 +44,21 @@ spotLight.shadow.bias = -0.0001;
 scene.add(spotLight);
 
 const loader = new GLTFLoader();
-loader.load( 'public/wall-floor/wall_floor.gltf', function ( gltf ) {
-  console.log('loading model');
-
+loader.load('public/wall-floor/wall_floor.gltf', function (gltf) {
   gltf.scene.traverse((child) => {
-  if (child.isMesh) {
-      const uvTexture = new THREE.TextureLoader().load('./public/wall-floor/textures/wall_floor_Diffuse.png')
-      const newMaterial = new THREE.MeshBasicMaterial({
-        map: uvTexture
-      });
-
-    child.material = newMaterial;
-    child.castShadow = true;
-    child.receiveShadow = true;
+    if (child.isMesh) {
+      // Ensure textures use the correct color space
+      if (child.material.map) {
+        child.material.map.colorSpace = THREE.SRGBColorSpace;
+      }
+      child.castShadow = true;
+      child.receiveShadow = true;
     }
-  })
+  });
   gltf.scene.position.set(0, 1, 0);
-  scene.add( gltf.scene );
-
-  }, undefined, function ( error ) {
-
-  console.error( error );
-
+  scene.add(gltf.scene);
+}, undefined, function (error) {
+  console.error(error);
 });
 
 function animate() {

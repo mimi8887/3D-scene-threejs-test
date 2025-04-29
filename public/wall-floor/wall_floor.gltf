@@ -25,7 +25,6 @@
 	],
 	"materials":[
 		{
-			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"emissiveFactor":[
 				1,
@@ -75,12 +74,12 @@
 		{
 			"mimeType":"image/png",
 			"name":"tatami.001_Baked_Bake1_PBR_Emission",
-			"uri":"tatami_001_Baked_Bake1_PBR_Emission.png"
+			"uri":"textures/tatami_001_Baked_Bake1_PBR_Emission.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"tatami.001_Baked_Bake1_PBR_Diffuse",
-			"uri":"tatami_001_Baked_Bake1_PBR_Diffuse.png"
+			"uri":"textures/tatami_001_Baked_Bake1_PBR_Diffuse.png"
 		}
 	],
 	"accessors":[
