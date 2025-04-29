@@ -1,0 +1,76 @@
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x000000);
+renderer.setPixelRatio(window.devicePixelRatio);
+
+document.body.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+camera.position.set(50, 50, 50);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.enablePan = false;
+controls.minDistance = 5;
+controls.maxDistance = 20;
+controls.minPolarAngle = 0.5;
+controls.maxPolarAngle = 1.5;
+controls.autoRotate = false;
+controls.target = new THREE.Vector3(0, 1, 0);
+controls.update();
+
+camera.lookAt(0, 0, 0)
+
+const groundGeometry = new THREE.PlaneGeometry(20, 20, 32, 32);
+groundGeometry.rotateX(-Math.PI / 2);
+const groundMaterial = new THREE.MeshStandardMaterial({
+  color: 0x555555,
+  side: THREE.DoubleSide
+});
+const groundMesh = new THREE.Mesh(groundGeometry, groundMaterial);
+scene.add(groundMesh);
+
+const spotLight = new THREE.SpotLight(0xffffff, 3000, 100, 0.22, 1);
+spotLight.position.set(0, 25, 0);
+spotLight.castShadow = true;
+spotLight.shadow.bias = -0.0001;
+scene.add(spotLight);
+
+const loader = new GLTFLoader();
+loader.load( 'public/wall-floor/wall_floor.gltf', function ( gltf ) {
+  console.log('loading model');
+
+  gltf.scene.traverse((child) => {
+  if (child.isMesh) {
+      const uvTexture = new THREE.TextureLoader().load('./public/wall-floor/textures/wall_floor_Diffuse.png')
+      const newMaterial = new THREE.MeshBasicMaterial({
+        map: uvTexture
+      });
+
+    child.material = newMaterial;
+    child.castShadow = true;
+    child.receiveShadow = true;
+    }
+  })
+  gltf.scene.position.set(0, 1, 0);
+  scene.add( gltf.scene );
+
+  }, undefined, function ( error ) {
+
+  console.error( error );
+
+});
+
+function animate() {
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+}
+
+animate();
