@@ -15,23 +15,11 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"table_aquarium_Baked",
-			"rotation":[
-				0.7071068286895752,
-				0,
-				0,
-				0.7071068286895752
-			],
-			"translation":[
-				-5.580193996429443,
-				2.8281924724578857,
-				9.162921905517578
-			]
+			"name":"wall_and_floor"
 		}
 	],
 	"materials":[
 		{
-			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"emissiveFactor":[
 				1,
@@ -41,7 +29,7 @@
 			"emissiveTexture":{
 				"index":0
 			},
-			"name":"table_aquarium_Baked.005",
+			"name":"tatami.001_Baked.001",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":1
@@ -53,7 +41,7 @@
 	],
 	"meshes":[
 		{
-			"name":"aquarium-glass.002_Cube.006",
+			"name":"Plane.002",
 			"primitives":[
 				{
 					"attributes":{
@@ -80,74 +68,74 @@
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"table_aquarium_Bake1_PBR_Emission",
-			"uri":"table_aquarium_Bake1_PBR_Emission.png"
+			"name":"tatami.001_Baked_Bake1_PBR_Emission",
+			"uri":"tatami_001_Baked_Bake1_PBR_Emission.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"table_aquarium_Bake1_PBR_Diffuse-table_aquarium_Bake1_PBR_Alpha",
-			"uri":"table_aquarium_Bake1_PBR_Diffuse-table_aquarium_Bake1_PBR_Alpha.png"
+			"name":"tatami.001_Bake1_PBR_Diffuse",
+			"uri":"tatami_001_Bake1_PBR_Diffuse.png"
 		}
 	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":8255,
+			"count":12998,
 			"max":[
-				3.052840232849121,
-				1.845118522644043,
-				2.8311479091644287
+				4.473505020141602,
+				16.34634017944336,
+				14.007308959960938
 			],
 			"min":[
-				-1.6128947734832764,
-				-1.5988101959228516,
-				-0.7440797090530396
+				-17.61333465576172,
+				-0.4246025085449219,
+				-5.457639694213867
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":8255,
+			"count":12998,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":8255,
+			"count":12998,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":20760,
+			"count":22212,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":99060,
+			"byteLength":155976,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":99060,
-			"byteOffset":99060,
+			"byteLength":155976,
+			"byteOffset":155976,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":66040,
-			"byteOffset":198120,
+			"byteLength":103984,
+			"byteOffset":311952,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":41520,
-			"byteOffset":264160,
+			"byteLength":44424,
+			"byteOffset":415936,
 			"target":34963
 		}
 	],
@@ -159,8 +147,8 @@
 	],
 	"buffers":[
 		{
-			"byteLength":305680,
-			"uri":"table_aquarium.bin"
+			"byteLength":460360,
+			"uri":"wall-floor.bin"
 		}
 	]
 }

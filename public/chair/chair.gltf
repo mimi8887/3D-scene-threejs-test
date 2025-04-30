@@ -15,32 +15,16 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"tatami_Baked",
-			"translation":[
-				-6.467938423156738,
-				0.06904271990060806,
-				0
-			]
+			"name":"chair_rug_pillows"
 		}
 	],
 	"materials":[
 		{
 			"doubleSided":true,
-			"name":"tatami_Baked.1001",
+			"name":"tatami_Baked.004",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":0
-				},
-				"metallicFactor":0,
-				"roughnessFactor":0.5
-			}
-		},
-		{
-			"doubleSided":true,
-			"name":"tatami_Baked.1011",
-			"pbrMetallicRoughness":{
-				"baseColorTexture":{
-					"index":1
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
@@ -49,7 +33,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Plane.001",
+			"name":"Plane.008",
 			"primitives":[
 				{
 					"attributes":{
@@ -59,15 +43,6 @@
 					},
 					"indices":3,
 					"material":0
-				},
-				{
-					"attributes":{
-						"POSITION":4,
-						"NORMAL":5,
-						"TEXCOORD_0":6
-					},
-					"indices":7,
-					"material":1
 				}
 			]
 		}
@@ -76,10 +51,6 @@
 		{
 			"sampler":0,
 			"source":0
-		},
-		{
-			"sampler":0,
-			"source":1
 		}
 	],
 	"images":[
@@ -87,130 +58,67 @@
 			"mimeType":"image/png",
 			"name":"tatami_Bake1_PBR_Diffuse.1001",
 			"uri":"tatami_Bake1_PBR_Diffuse_1001.png"
-		},
-		{
-			"mimeType":"image/png",
-			"name":"tatami_Bake1_PBR_Diffuse.1011",
-			"uri":"tatami_Bake1_PBR_Diffuse_1011.png"
 		}
 	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":12605,
+			"count":12608,
 			"max":[
-				9.58562183380127,
-				7.541891574859619,
+				3.1176834106445312,
+				7.610934257507324,
 				14.006900787353516
 			],
 			"min":[
-				-4.601977348327637,
-				-0.18932253122329712,
-				-1.8873933553695679
+				-11.069915771484375,
+				-0.12027981877326965,
+				-1.8873934745788574
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":12605,
+			"count":12608,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":12605,
+			"count":12608,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":36777,
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":4,
-			"componentType":5126,
-			"count":4,
-			"max":[
-				2.5865039825439453,
-				3.2854018211364746,
-				1.208313226699829
-			],
-			"min":[
-				2.4948911666870117,
-				3.252685308456421,
-				1.1178696155548096
-			],
-			"type":"VEC3"
-		},
-		{
-			"bufferView":5,
-			"componentType":5126,
-			"count":4,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":6,
-			"componentType":5126,
-			"count":4,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":7,
-			"componentType":5123,
-			"count":6,
+			"count":36783,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":151260,
+			"byteLength":151296,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":151260,
-			"byteOffset":151260,
+			"byteLength":151296,
+			"byteOffset":151296,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":100840,
-			"byteOffset":302520,
+			"byteLength":100864,
+			"byteOffset":302592,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":73554,
-			"byteOffset":403360,
-			"target":34963
-		},
-		{
-			"buffer":0,
-			"byteLength":48,
-			"byteOffset":476916,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":48,
-			"byteOffset":476964,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":32,
-			"byteOffset":477012,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":12,
-			"byteOffset":477044,
+			"byteLength":73566,
+			"byteOffset":403456,
 			"target":34963
 		}
 	],
@@ -222,7 +130,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":477056,
+			"byteLength":477024,
 			"uri":"chair.bin"
 		}
 	]

@@ -15,23 +15,11 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"desk",
-			"rotation":[
-				-0.735266923904419,
-				-0.20271529257297516,
-				0.14963921904563904,
-				0.6292036771774292
-			],
-			"translation":[
-				-2.7430949211120605,
-				4.016040325164795,
-				-4.023863792419434
-			]
+			"name":"desk"
 		}
 	],
 	"materials":[
 		{
-			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"emissiveFactor":[
 				1,
@@ -80,42 +68,42 @@
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"Speaker.001_Bake1_PBR_Emission_black",
-			"uri":"Speaker_001_Bake1_PBR_Emission_black.png"
+			"name":"desk_emission",
+			"uri":"textures/desk_emission.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"Speaker.001_Bake1_PBR_Diffuse",
-			"uri":"Speaker_001_Bake1_PBR_Diffuse.png"
+			"name":"desk_diffuse",
+			"uri":"textures/desk_diffuse.png"
 		}
 	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":151150,
+			"count":151756,
 			"max":[
-				9.061893463134766,
-				2.2249467372894287,
-				9.2982177734375
+				4.278123378753662,
+				13.731282234191895,
+				-1.3282134532928467
 			],
 			"min":[
-				-5.890635967254639,
-				-3.1574208736419678,
-				-6.951675891876221
+				-7.531401634216309,
+				0.058145225048065186,
+				-5.087574481964111
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":151150,
+			"count":151756,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":151150,
+			"count":151756,
 			"type":"VEC2"
 		},
 		{
@@ -128,26 +116,26 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":1813800,
+			"byteLength":1821072,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1813800,
-			"byteOffset":1813800,
+			"byteLength":1821072,
+			"byteOffset":1821072,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1209200,
-			"byteOffset":3627600,
+			"byteLength":1214048,
+			"byteOffset":3642144,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1685664,
-			"byteOffset":4836800,
+			"byteOffset":4856192,
 			"target":34963
 		}
 	],
@@ -159,7 +147,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":6522464,
+			"byteLength":6541856,
 			"uri":"desk.bin"
 		}
 	]

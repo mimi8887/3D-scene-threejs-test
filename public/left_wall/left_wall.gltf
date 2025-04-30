@@ -15,23 +15,11 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"left_wall",
-			"rotation":[
-				0.5,
-				0.5,
-				-0.5,
-				0.5
-			],
-			"translation":[
-				-17.109342575073242,
-				9.17234992980957,
-				1.5954978466033936
-			]
+			"name":"left_wall"
 		}
 	],
 	"materials":[
 		{
-			"alphaMode":"BLEND",
 			"doubleSided":true,
 			"emissiveFactor":[
 				1,
@@ -81,41 +69,41 @@
 		{
 			"mimeType":"image/png",
 			"name":"board_Bake1_PBR_Emission_map",
-			"uri":"board_Bake1_PBR_Emission_map.png"
+			"uri":"textures/board_Bake1_PBR_Emission_map.png"
 		},
 		{
 			"mimeType":"image/png",
 			"name":"board_Bake1_PBR_Diffuse",
-			"uri":"board_Bake1_PBR_Diffuse.png"
+			"uri":"textures/board_Bake1_PBR_Diffuse.png"
 		}
 	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":29471,
+			"count":29965,
 			"max":[
-				4.472594738006592,
-				1.2542870044708252,
-				6.585474014282227
+				-15.85505485534668,
+				15.380875587463379,
+				13.166695594787598
 			],
 			"min":[
-				-11.571197509765625,
-				-0.19810664653778076,
-				-6.208524703979492
+				-17.307449340820312,
+				2.586876392364502,
+				-2.8770968914031982
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":29471,
+			"count":29965,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":29471,
+			"count":29965,
 			"type":"VEC2"
 		},
 		{
@@ -128,26 +116,26 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":353652,
+			"byteLength":359580,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":353652,
-			"byteOffset":353652,
+			"byteLength":359580,
+			"byteOffset":359580,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":235768,
-			"byteOffset":707304,
+			"byteLength":239720,
+			"byteOffset":719160,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":137832,
-			"byteOffset":943072,
+			"byteOffset":958880,
 			"target":34963
 		}
 	],
@@ -159,7 +147,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":1080904,
+			"byteLength":1096712,
 			"uri":"left_wall.bin"
 		}
 	]
