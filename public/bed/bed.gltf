@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.4.56",
+		"generator":"Khronos glTF Blender I/O v4.1.63",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -15,24 +15,13 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"bed_Baked",
-			"rotation":[
-				0.5,
-				0.5,
-				-0.5,
-				0.5000000596046448
-			],
-			"translation":[
-				-17.82331657409668,
-				0,
-				-4.845983505249023
-			]
+			"name":"bed"
 		}
 	],
 	"materials":[
 		{
 			"doubleSided":true,
-			"name":"bed_Baked.1001",
+			"name":"bed_Baked",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":0
@@ -67,37 +56,37 @@
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"bed_Bake1_PBR_Diffuse",
-			"uri":"bed_Bake1_PBR_Diffuse.png"
+			"name":"Image",
+			"uri":"textures/Image.png"
 		}
 	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":15342,
+			"count":15348,
 			"max":[
-				-0.02426588535308838,
-				9.376480102539062,
-				-0.04431675001978874
+				-8.446836471557617,
+				5.232198238372803,
+				9.068123817443848
 			],
 			"min":[
-				-13.914108276367188,
-				0.47150135040283203,
-				-5.2321977615356445
+				-17.35181427001953,
+				0.04431680589914322,
+				-4.821718215942383
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":15342,
+			"count":15348,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":15342,
+			"count":15348,
 			"type":"VEC2"
 		},
 		{
@@ -110,26 +99,26 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":184104,
+			"byteLength":184176,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":184104,
-			"byteOffset":184104,
+			"byteLength":184176,
+			"byteOffset":184176,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":122736,
-			"byteOffset":368208,
+			"byteLength":122784,
+			"byteOffset":368352,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":59340,
-			"byteOffset":490944,
+			"byteOffset":491136,
 			"target":34963
 		}
 	],
@@ -141,7 +130,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":550284,
+			"byteLength":550476,
 			"uri":"bed.bin"
 		}
 	]

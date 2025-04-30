@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.4.56",
+		"generator":"Khronos glTF Blender I/O v4.1.63",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -15,17 +15,11 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"table_aquarium_Baked",
-			"rotation":[
-				0.7071068286895752,
-				0,
-				0,
-				0.7071068286895752
-			],
+			"name":"table_aquarium",
 			"translation":[
-				-5.580193996429443,
-				2.8281924724578857,
-				9.162921905517578
+				-6.427217483520508,
+				0.06904315948486328,
+				4.31760311126709
 			]
 		}
 	],
@@ -81,41 +75,41 @@
 		{
 			"mimeType":"image/png",
 			"name":"table_aquarium_Bake1_PBR_Emission",
-			"uri":"table_aquarium_Bake1_PBR_Emission.png"
+			"uri":"textures/table_aquarium_Bake1_PBR_Emission.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"table_aquarium_Bake1_PBR_Diffuse-table_aquarium_Bake1_PBR_Alpha",
-			"uri":"table_aquarium_Bake1_PBR_Diffuse-table_aquarium_Bake1_PBR_Alpha.png"
+			"name":"table_aquarium-table_aquarium_alpha",
+			"uri":"textures/table_aquarium-table_aquarium_alpha.png"
 		}
 	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":8255,
+			"count":8259,
 			"max":[
-				3.052840232849121,
-				1.845118522644043,
-				2.8311479091644287
+				3.8998637199401855,
+				3.5032291412353516,
+				6.690437316894531
 			],
 			"min":[
-				-1.6128947734832764,
-				-1.5988101959228516,
-				-0.7440797090530396
+				-0.7658710479736328,
+				-0.07199882715940475,
+				3.2465085983276367
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":8255,
+			"count":8259,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":8255,
+			"count":8259,
 			"type":"VEC2"
 		},
 		{
@@ -128,26 +122,26 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":99060,
+			"byteLength":99108,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":99060,
-			"byteOffset":99060,
+			"byteLength":99108,
+			"byteOffset":99108,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":66040,
-			"byteOffset":198120,
+			"byteLength":66072,
+			"byteOffset":198216,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":41520,
-			"byteOffset":264160,
+			"byteOffset":264288,
 			"target":34963
 		}
 	],
@@ -159,8 +153,8 @@
 	],
 	"buffers":[
 		{
-			"byteLength":305680,
-			"uri":"table_aquarium.bin"
+			"byteLength":305808,
+			"uri":"aquarium.bin"
 		}
 	]
 }
