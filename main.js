@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
@@ -13,7 +14,7 @@ document.body.appendChild(renderer.domElement);
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-camera.position.set(50, 50, 50);
+camera.position.set(150, 150, 50);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
@@ -42,12 +43,14 @@ spotLight.position.set(0, 25, 0);
 spotLight.castShadow = true;
 spotLight.shadow.bias = -0.0001;
 scene.add(spotLight);
+const light = new THREE.AmbientLight( 0x404040 ); // soft white light
+scene.add( light );
 
 const loader = new GLTFLoader();
-loader.load('public/wall-floor/wall_floor.gltf', function (gltf) {
+loader.load('public/wall-floor/wall-floor.gltf', function (gltf) {
+  console.log("mesh loaded")
   gltf.scene.traverse((child) => {
     if (child.isMesh) {
-      // Ensure textures use the correct color space
       if (child.material.map) {
         child.material.map.colorSpace = THREE.SRGBColorSpace;
       }
@@ -55,8 +58,11 @@ loader.load('public/wall-floor/wall_floor.gltf', function (gltf) {
       child.receiveShadow = true;
     }
   });
+
   gltf.scene.position.set(0, 1, 0);
   scene.add(gltf.scene);
+  console.log(gltf.scene);
+
 }, undefined, function (error) {
   console.error(error);
 });

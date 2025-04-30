@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.1.63",
+		"generator":"Khronos glTF Blender I/O v4.4.56",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -15,12 +15,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"wall_floor",
-			"translation":[
-				-6.427217483520508,
-				0.06904315948486328,
-				4.31760311126709
-			]
+			"name":"wall_and_floor"
 		}
 	],
 	"materials":[
@@ -34,7 +29,7 @@
 			"emissiveTexture":{
 				"index":0
 			},
-			"name":"tatami.001_Baked_Baked",
+			"name":"tatami.001_Baked.001",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":1
@@ -46,7 +41,7 @@
 	],
 	"meshes":[
 		{
-			"name":"Plane.003",
+			"name":"Plane.002",
 			"primitives":[
 				{
 					"attributes":{
@@ -74,73 +69,73 @@
 		{
 			"mimeType":"image/png",
 			"name":"tatami.001_Baked_Bake1_PBR_Emission",
-			"uri":"textures/tatami_001_Baked_Bake1_PBR_Emission.png"
+			"uri":"tatami_001_Baked_Bake1_PBR_Emission.png"
 		},
 		{
 			"mimeType":"image/png",
-			"name":"tatami.001_Baked_Bake1_PBR_Diffuse",
-			"uri":"textures/tatami_001_Baked_Bake1_PBR_Diffuse.png"
+			"name":"tatami.001_Bake1_PBR_Diffuse",
+			"uri":"tatami_001_Bake1_PBR_Diffuse.png"
 		}
 	],
 	"accessors":[
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":15314,
+			"count":12998,
 			"max":[
-				10.90072250366211,
-				16.27729606628418,
-				9.689705848693848
+				4.473505020141602,
+				16.34634017944336,
+				14.007308959960938
 			],
 			"min":[
-				-11.186117172241211,
-				-0.49364566802978516,
-				-9.775242805480957
+				-17.61333465576172,
+				-0.4246025085449219,
+				-5.457639694213867
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":15314,
+			"count":12998,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":15314,
+			"count":12998,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":25680,
+			"count":22212,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":183768,
+			"byteLength":155976,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":183768,
-			"byteOffset":183768,
+			"byteLength":155976,
+			"byteOffset":155976,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":122512,
-			"byteOffset":367536,
+			"byteLength":103984,
+			"byteOffset":311952,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":51360,
-			"byteOffset":490048,
+			"byteLength":44424,
+			"byteOffset":415936,
 			"target":34963
 		}
 	],
@@ -152,8 +147,8 @@
 	],
 	"buffers":[
 		{
-			"byteLength":541408,
-			"uri":"wall_floor.bin"
+			"byteLength":460360,
+			"uri":"wall-floor.bin"
 		}
 	]
 }
