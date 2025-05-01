@@ -1,6 +1,6 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v4.1.63",
+		"generator":"Khronos glTF Blender I/O v4.4.56",
 		"version":"2.0"
 	},
 	"scene":0,
@@ -15,14 +15,19 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"curtains"
+			"name":"curtains",
+			"translation":[
+				0,
+				0,
+				0.6719291806221008
+			]
 		}
 	],
 	"materials":[
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"name":"Plane.033_Baked",
+			"name":"Plane.033_Baked.1001",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":0
@@ -34,7 +39,7 @@
 		{
 			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"name":"Plane.033_Baked",
+			"name":"Plane.033_Baked.1002",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":1
@@ -76,14 +81,19 @@
 		},
 		{
 			"sampler":0,
-			"source":0
+			"source":1
 		}
 	],
 	"images":[
 		{
 			"mimeType":"image/png",
-			"name":"Image",
-			"uri":"textures/Image.png"
+			"name":"curtains_diffuse",
+			"uri":"textures/curtains_diffuse.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"curtains_diffuse",
+			"uri":"textures/curtains_diffuse-1.png"
 		}
 	],
 	"accessors":[
@@ -215,7 +225,7 @@
 	"buffers":[
 		{
 			"byteLength":981436,
-			"uri":"curtain.bin"
+			"uri":"curtains.bin"
 		}
 	]
 }
