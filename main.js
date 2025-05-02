@@ -67,9 +67,9 @@ spotLight2.target = spotLight2Target;
 // const spotLightHelper2 = new THREE.SpotLightHelper(spotLight2);
 // scene.add(spotLightHelper2);
 
-// ambient light
-const light = new THREE.AmbientLight( 0xa400f0, 0.1 );
-scene.add( light );
+// // ambient light
+// const light = new THREE.AmbientLight( 0xa400f0, 0.1 );
+// scene.add( light );
 
 // pointlight 1
 const pointLight = new THREE.PointLight( new THREE.Color(0.351, 0.498, 1), 4, 50 );
@@ -142,6 +142,10 @@ floor.load('public/wall-floor/wall-floor.gltf', function (gltf) {
     if (child.isMesh) {
       if (child.material.map) {
         child.material.map.colorSpace = THREE.SRGBColorSpace;
+      }
+            // Increase emissive intensity
+      if (child.material.emissiveMap) {
+        child.material.emissiveIntensity = 5;
       }
       child.castShadow = true;
       child.receiveShadow = true;
@@ -257,6 +261,9 @@ leftWall.load('public/left_wall/left_wall.gltf', function (gltf) {
     if (child.isMesh) {
       if (child.material.map) {
         child.material.map.colorSpace = THREE.SRGBColorSpace;
+      }
+      if (child.material.emissiveMap) {
+        child.material.emissiveIntensity = 15;
       }
       child.castShadow = true;
       child.receiveShadow = true;
