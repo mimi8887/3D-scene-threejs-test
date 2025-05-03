@@ -209,7 +209,7 @@ desk.load('public/desk/desk.gltf', function (gltf) {
 
 //curtain
 const curtain = new GLTFLoader();
-curtain.load('public/curtain/curtains.gltf', function (gltf) {
+curtain.load('public/curtain/curtain.glb', function (gltf) {
   console.log("mesh loaded")
   gltf.scene.traverse((child) => {
     gltf.scene.scale.set(0.5, 0.5, 0.5);
