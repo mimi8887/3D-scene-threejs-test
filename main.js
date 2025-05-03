@@ -10,6 +10,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0x000000);
 renderer.setPixelRatio(window.devicePixelRatio);
+renderer.shadowMap.enabled = true;
 
 document.body.appendChild(renderer.domElement);
 
@@ -40,8 +41,8 @@ camera.lookAt(1, 1, 1)
 // scene.add(groundMesh);
 
 //spotlight
-const spotLight = new THREE.SpotLight(0xB17FFF, 3000, 100, 0.22, 1);
-spotLight.position.set(50, 25, 0);
+const spotLight = new THREE.SpotLight(new THREE.Color(0.43, 0.21, 1), 3000, 100, 0.22, 1);
+spotLight.position.set(3.72, 50, 10);
 spotLight.castShadow = true;
 spotLight.shadow.bias = -0.0001;
 scene.add(spotLight);
@@ -63,8 +64,8 @@ spotLight2Target.position.set(0, 0, -1); // forward from spotlight
 spotLight2Parent.add(spotLight2Target);
 spotLight2.target = spotLight2Target;
 
-//SpotLightHelper
-// const spotLightHelper2 = new THREE.SpotLightHelper(spotLight2);
+// SpotLightHelper
+// const spotLightHelper2 = new THREE.SpotLightHelper(spotLight);
 // scene.add(spotLightHelper2);
 
 // // ambient light
