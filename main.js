@@ -42,7 +42,7 @@ camera.lookAt(1, 1, 1)
 
 //spotlight
 const spotLight = new THREE.SpotLight(new THREE.Color(0.43, 0.21, 1), 3000, 100, 0.22, 1);
-spotLight.position.set(3.72, 50, 10);
+spotLight.position.set(-10.4, 43, 20);
 spotLight.castShadow = true;
 spotLight.shadow.bias = -0.0001;
 scene.add(spotLight);
@@ -69,8 +69,8 @@ spotLight2.target = spotLight2Target;
 // scene.add(spotLightHelper2);
 
 // // ambient light
-// const light = new THREE.AmbientLight( 0xa400f0, 0.1 );
-// scene.add( light );
+const light = new THREE.AmbientLight( 0xa400f0, 0.1 );
+scene.add( light );
 
 // pointlight 1
 const pointLight = new THREE.PointLight( new THREE.Color(0.351, 0.498, 1), 4, 50 );
