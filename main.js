@@ -137,14 +137,14 @@ lightFolder2.open();
 // assets
 // wall and floor
 const floor = new GLTFLoader();
-floor.load('public/wall-floor/wall-floor.gltf', function (gltf) {
-  console.log("mesh loaded")
+floor.load('public/wall-floor/wall-floor.glb', function (gltf) {
+  console.log("wall floor mesh loaded")
   gltf.scene.traverse((child) => {
     if (child.isMesh) {
       if (child.material.map) {
         child.material.map.colorSpace = THREE.SRGBColorSpace;
       }
-            // Increase emissive intensity
+            // emissive intensity
       if (child.material.emissiveMap) {
         child.material.emissiveIntensity = 5;
       }
