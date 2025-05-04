@@ -42,7 +42,7 @@ camera.lookAt(1, 1, 1)
 
 //spotlight
 const spotLight = new THREE.SpotLight(new THREE.Color(0.43, 0.21, 1), 3000, 100, 0.22, 1);
-spotLight.position.set(-10.4, 43, 20);
+spotLight.position.set(20, 43, -8.4);
 spotLight.castShadow = true;
 spotLight.shadow.bias = -0.0001;
 scene.add(spotLight);
@@ -278,7 +278,34 @@ leftWall.load('public/left_wall/left_wall.gltf', function (gltf) {
 
 //aquarium
 const aquarium = new GLTFLoader();
-aquarium.load('public/aquarium/aquarium.gltf', function (gltf) {
+let mixer;
+aquarium.load('public/aquarium/aquarium.glb', function (gltf) {
+  console.log("mesh aquarium loaded")
+  gltf.scene.traverse((child) => {
+    gltf.scene.scale.set(0.5, 0.5, 0.5);
+    if (child.isMesh) {
+      if (child.material.map) {
+        child.material.map.colorSpace = THREE.SRGBColorSpace;
+      }
+      
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+  });
+  scene.add(gltf.scene);
+
+  mixer = new THREE.AnimationMixer(gltf.scene);
+  gltf.animations.forEach((clip) => {
+    mixer.clipAction(clip).play();
+  });
+
+}, undefined, function (error) {
+  console.error(error);
+});
+
+//table
+const table = new GLTFLoader();
+table.load('public/table/low-table.glb', function (gltf) {
   console.log("mesh loaded")
   gltf.scene.traverse((child) => {
     gltf.scene.scale.set(0.5, 0.5, 0.5);
@@ -296,8 +323,13 @@ aquarium.load('public/aquarium/aquarium.gltf', function (gltf) {
   console.error(error);
 });
 
+const clock = new THREE.Clock();
+
 function animate() {
   requestAnimationFrame(animate);
+
+  const delta = clock.getDelta();
+  if (mixer) mixer.update(delta);
   // pointLightHelper.update();
   // spotLightHelper2.update();
   renderer.render(scene, camera);
