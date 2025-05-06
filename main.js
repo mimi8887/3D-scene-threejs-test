@@ -186,13 +186,40 @@ chair.load('public/chair/chair.gltf', function (gltf) {
 // desk
 
 const desk = new GLTFLoader();
-desk.load('public/desk/desk.gltf', function (gltf) {
+desk.load('public/desk/desk.glb', function (gltf) {
   console.log("mesh loaded")
   gltf.scene.traverse((child) => {
     gltf.scene.scale.set(0.5, 0.5, 0.5);
     if (child.isMesh) {
       if (child.material.map) {
         child.material.map.colorSpace = THREE.SRGBColorSpace;
+      }
+
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+  });
+
+  scene.add(gltf.scene);
+  console.log(gltf.scene);
+
+}, undefined, function (error) {
+  console.error(error);
+});
+
+// screens
+
+const screens = new GLTFLoader();
+screens.load('public/screens/screens.glb', function (gltf) {
+  console.log("mesh loaded")
+  gltf.scene.traverse((child) => {
+    gltf.scene.scale.set(0.5, 0.5, 0.5);
+    if (child.isMesh) {
+      if (child.material.map) {
+        child.material.map.colorSpace = THREE.SRGBColorSpace;
+      }
+      if (child.material.emissiveMap) {
+        child.material.emissiveIntensity = 1;
       }
       child.castShadow = true;
       child.receiveShadow = true;
@@ -287,7 +314,7 @@ aquarium.load('public/aquarium/aquarium.glb', function (gltf) {
       if (child.material.map) {
         child.material.map.colorSpace = THREE.SRGBColorSpace;
       }
-      
+
       child.castShadow = true;
       child.receiveShadow = true;
     }
