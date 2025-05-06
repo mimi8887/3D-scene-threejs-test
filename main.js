@@ -10,6 +10,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0x000000);
 renderer.setPixelRatio(window.devicePixelRatio);
+renderer.shadowMap.enabled = true;
 
 document.body.appendChild(renderer.domElement);
 
@@ -40,8 +41,8 @@ camera.lookAt(1, 1, 1)
 // scene.add(groundMesh);
 
 //spotlight
-const spotLight = new THREE.SpotLight(0xB17FFF, 3000, 100, 0.22, 1);
-spotLight.position.set(50, 25, 0);
+const spotLight = new THREE.SpotLight(new THREE.Color(0.43, 0.21, 1), 3000, 100, 0.22, 1);
+spotLight.position.set(20, 43, -8.4);
 spotLight.castShadow = true;
 spotLight.shadow.bias = -0.0001;
 scene.add(spotLight);
@@ -63,11 +64,11 @@ spotLight2Target.position.set(0, 0, -1); // forward from spotlight
 spotLight2Parent.add(spotLight2Target);
 spotLight2.target = spotLight2Target;
 
-//SpotLightHelper
-// const spotLightHelper2 = new THREE.SpotLightHelper(spotLight2);
+// SpotLightHelper
+// const spotLightHelper2 = new THREE.SpotLightHelper(spotLight);
 // scene.add(spotLightHelper2);
 
-// ambient light
+// // ambient light
 const light = new THREE.AmbientLight( 0xa400f0, 0.1 );
 scene.add( light );
 
@@ -136,12 +137,16 @@ lightFolder2.open();
 // assets
 // wall and floor
 const floor = new GLTFLoader();
-floor.load('public/wall-floor/wall-floor.gltf', function (gltf) {
-  console.log("mesh loaded")
+floor.load('public/wall-floor/wall-floor.glb', function (gltf) {
+  console.log("wall floor mesh loaded")
   gltf.scene.traverse((child) => {
     if (child.isMesh) {
       if (child.material.map) {
         child.material.map.colorSpace = THREE.SRGBColorSpace;
+      }
+            // emissive intensity
+      if (child.material.emissiveMap) {
+        child.material.emissiveIntensity = 5;
       }
       child.castShadow = true;
       child.receiveShadow = true;
@@ -181,13 +186,40 @@ chair.load('public/chair/chair.gltf', function (gltf) {
 // desk
 
 const desk = new GLTFLoader();
-desk.load('public/desk/desk.gltf', function (gltf) {
+desk.load('public/desk/desk.glb', function (gltf) {
   console.log("mesh loaded")
   gltf.scene.traverse((child) => {
     gltf.scene.scale.set(0.5, 0.5, 0.5);
     if (child.isMesh) {
       if (child.material.map) {
         child.material.map.colorSpace = THREE.SRGBColorSpace;
+      }
+
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+  });
+
+  scene.add(gltf.scene);
+  console.log(gltf.scene);
+
+}, undefined, function (error) {
+  console.error(error);
+});
+
+// screens
+
+const screens = new GLTFLoader();
+screens.load('public/screens/screens.glb', function (gltf) {
+  console.log("mesh loaded")
+  gltf.scene.traverse((child) => {
+    gltf.scene.scale.set(0.5, 0.5, 0.5);
+    if (child.isMesh) {
+      if (child.material.map) {
+        child.material.map.colorSpace = THREE.SRGBColorSpace;
+      }
+      if (child.material.emissiveMap) {
+        child.material.emissiveIntensity = 1;
       }
       child.castShadow = true;
       child.receiveShadow = true;
@@ -204,7 +236,7 @@ desk.load('public/desk/desk.gltf', function (gltf) {
 
 //curtain
 const curtain = new GLTFLoader();
-curtain.load('public/curtain/curtains.gltf', function (gltf) {
+curtain.load('public/curtain/curtain.glb', function (gltf) {
   console.log("mesh loaded")
   gltf.scene.traverse((child) => {
     gltf.scene.scale.set(0.5, 0.5, 0.5);
@@ -258,6 +290,9 @@ leftWall.load('public/left_wall/left_wall.gltf', function (gltf) {
       if (child.material.map) {
         child.material.map.colorSpace = THREE.SRGBColorSpace;
       }
+      if (child.material.emissiveMap) {
+        child.material.emissiveIntensity = 15;
+      }
       child.castShadow = true;
       child.receiveShadow = true;
     }
@@ -270,7 +305,34 @@ leftWall.load('public/left_wall/left_wall.gltf', function (gltf) {
 
 //aquarium
 const aquarium = new GLTFLoader();
-aquarium.load('public/aquarium/aquarium.gltf', function (gltf) {
+let mixer;
+aquarium.load('public/aquarium/aquarium.glb', function (gltf) {
+  console.log("mesh aquarium loaded")
+  gltf.scene.traverse((child) => {
+    gltf.scene.scale.set(0.5, 0.5, 0.5);
+    if (child.isMesh) {
+      if (child.material.map) {
+        child.material.map.colorSpace = THREE.SRGBColorSpace;
+      }
+
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
+  });
+  scene.add(gltf.scene);
+
+  mixer = new THREE.AnimationMixer(gltf.scene);
+  gltf.animations.forEach((clip) => {
+    mixer.clipAction(clip).play();
+  });
+
+}, undefined, function (error) {
+  console.error(error);
+});
+
+//table
+const table = new GLTFLoader();
+table.load('public/table/low-table.glb', function (gltf) {
   console.log("mesh loaded")
   gltf.scene.traverse((child) => {
     gltf.scene.scale.set(0.5, 0.5, 0.5);
@@ -288,8 +350,13 @@ aquarium.load('public/aquarium/aquarium.gltf', function (gltf) {
   console.error(error);
 });
 
+const clock = new THREE.Clock();
+
 function animate() {
   requestAnimationFrame(animate);
+
+  const delta = clock.getDelta();
+  if (mixer) mixer.update(delta);
   // pointLightHelper.update();
   // spotLightHelper2.update();
   renderer.render(scene, camera);
