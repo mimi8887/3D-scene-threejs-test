@@ -26,10 +26,14 @@ controls.maxDistance = 20;
 controls.minPolarAngle = 0.5;
 controls.maxPolarAngle = 1.5;
 controls.autoRotate = false;
-controls.target = new THREE.Vector3(0, 1, 0);
+controls.target = new THREE.Vector3(2, 2.5, 1);
 controls.update();
 
-camera.lookAt(1, 1, 1)
+camera.lookAt(2, 3, 1)
+
+// const renderScene = new RenderPass(scene, camera);
+// const composer = new EffectComposer(renderer);
+// composer.addPass(renderScene);
 
 // const groundGeometry = new THREE.PlaneGeometry(20, 20, 32, 32);
 // groundGeometry.rotateX(-Math.PI / 2);
@@ -64,6 +68,11 @@ spotLight2Target.position.set(0, 0, -1); // forward from spotlight
 spotLight2Parent.add(spotLight2Target);
 spotLight2.target = spotLight2Target;
 
+const spotLight3 = new THREE.SpotLight(new THREE.Color(0.8, 0.3, 1), 500, 200, 0.22, 1);
+spotLight3.position.set(20, 10.5, 20);
+spotLight3.castShadow = true;
+spotLight3.shadow.bias = -0.0001;
+scene.add(spotLight3);
 
 // SpotLightHelper
 // const spotLightHelper2 = new THREE.SpotLightHelper(spotLight);
@@ -82,57 +91,63 @@ const pointLight2 = new THREE.PointLight( new THREE.Color(0.695, 0.326, 0.695), 
 pointLight2.position.set(-2.6, 2.8, -0.2 );
 scene.add( pointLight2 );
 
+const pointLight3 = new THREE.PointLight( new THREE.Color(0.5, 0.226, 0.616), 3.6, 200, 1.5 );
+pointLight3.position.set(-5.1, 4.65, 1.1 );
+scene.add( pointLight3 );
+
 // PointLightHelper
-// const pointLightHelper = new THREE.PointLightHelper(pointLight2, 1);
+// const pointLightHelper = new THREE.PointLightHelper(pointLight3, 1);
 // scene.add(pointLightHelper);
 
 // GUI controls
 
-const gui = new GUI();
-const lightFolder = gui.addFolder('Spotlight Position');
-lightFolder.add(spotLight, 'visible');
-lightFolder.add(spotLight.position, 'x', -20, 20).name('X Position');
-lightFolder.add(spotLight.position, 'y', 0, 50).name('Y Position');
-lightFolder.add(spotLight.position, 'z', -20, 20).name('Z Position');
-lightFolder.add(spotLight.color, 'r', 0.0, 1.0).name('R');
-lightFolder.add(spotLight.color, 'g', 0.0, 1.0).name('G');
-lightFolder.add(spotLight.color, 'b', 0.0, 1.0).name('B');
+// const gui = new GUI();
+// const lightFolder = gui.addFolder('Spotlight3 Position');
+// lightFolder.add(spotLight3, 'visible');
+// lightFolder.add(spotLight3.position, 'x', -20, 20).name('X Position');
+// lightFolder.add(spotLight3.position, 'y', 0, 100).name('Y Position');
+// lightFolder.add(spotLight3.position, 'z', -20, 20).name('Z Position');
+// lightFolder.add(spotLight3, 'intensity', 0, 3000).name('Intensity');
+// lightFolder.add(spotLight3, 'distance', 0, 200).name('Distance');
+// lightFolder.add(spotLight3.color, 'r', 0.0, 1.0).name('R');
+// lightFolder.add(spotLight3.color, 'g', 0.0, 1.0).name('G');
+// lightFolder.add(spotLight3.color, 'b', 0.0, 1.0).name('B');
 
-lightFolder.open();
+// lightFolder.open();
 
-const pointLightFolder = gui.addFolder('PointLight Controls');
-pointLightFolder.add(pointLight2, 'visible');
-pointLightFolder.add(pointLight2.position, 'x', -50, 50).name('X Position');
-pointLightFolder.add(pointLight2.position, 'y', 0, 50).name('Y Position');
-pointLightFolder.add(pointLight2.position, 'z', -50, 50).name('Z Position');
-pointLightFolder.add(pointLight2, 'intensity', 0, 10).name('Intensity');
-pointLightFolder.add(pointLight2, 'distance', 0, 200).name('Distance');
-pointLightFolder.add(pointLight2, 'decay', 0, 5).name('Decay');
-pointLightFolder.add(pointLight2.color, 'r', 0.0, 1.0).name('R');
-pointLightFolder.add(pointLight2.color, 'g', 0.0, 1.0).name('G');
-pointLightFolder.add(pointLight2.color, 'b', 0.0, 1.0).name('B');
+// const pointLightFolder = gui.addFolder('PointLight Controls');
+// pointLightFolder.add(pointLight3, 'visible');
+// pointLightFolder.add(pointLight3.position, 'x', -50, 50).name('X Position');
+// pointLightFolder.add(pointLight3.position, 'y', 0, 50).name('Y Position');
+// pointLightFolder.add(pointLight3.position, 'z', -50, 50).name('Z Position');
+// pointLightFolder.add(pointLight3, 'intensity', 0, 10).name('Intensity');
+// pointLightFolder.add(pointLight3, 'distance', 0, 200).name('Distance');
+// pointLightFolder.add(pointLight3, 'decay', 0, 5).name('Decay');
+// pointLightFolder.add(pointLight3.color, 'r', 0.0, 1.0).name('R');
+// pointLightFolder.add(pointLight3.color, 'g', 0.0, 1.0).name('G');
+// pointLightFolder.add(pointLight3.color, 'b', 0.0, 1.0).name('B');
 
-pointLightFolder.open();
+// pointLightFolder.open();
 
-const lightFolder2 = gui.addFolder('Spotlight2 Controls');
-lightFolder2.add(spotLight2, 'visible');
-lightFolder2.add(spotLight2Parent.position, 'x', -50, 50).name('X Position');
-lightFolder2.add(spotLight2Parent.position, 'y', 0, 50).name('Y Position');
-lightFolder2.add(spotLight2Parent.position, 'z', -50, 50).name('Z Position');
-lightFolder2.add(spotLight2, 'intensity', 0, 1000).name('Intensity');
-lightFolder2.add(spotLight2, 'distance', 0, 200).name('Distance');
+// const lightFolder2 = gui.addFolder('Spotlight2 Controls');
+// lightFolder2.add(spotLight2, 'visible');
+// lightFolder2.add(spotLight2Parent.position, 'x', -50, 50).name('X Position');
+// lightFolder2.add(spotLight2Parent.position, 'y', 0, 50).name('Y Position');
+// lightFolder2.add(spotLight2Parent.position, 'z', -50, 50).name('Z Position');
+// lightFolder2.add(spotLight2, 'intensity', 0, 1000).name('Intensity');
+// lightFolder2.add(spotLight2, 'distance', 0, 200).name('Distance');
 
-// Add rotation controls on parent
-lightFolder2.add(spotLight2Parent.rotation, 'x', -Math.PI, Math.PI).name('X Rotation');
-lightFolder2.add(spotLight2Parent.rotation, 'y', -Math.PI, Math.PI).name('Y Rotation');
-lightFolder2.add(spotLight2Parent.rotation, 'z', -Math.PI, Math.PI).name('Z Rotation');
+// // Add rotation controls on parent
+// lightFolder2.add(spotLight2Parent.rotation, 'x', -Math.PI, Math.PI).name('X Rotation');
+// lightFolder2.add(spotLight2Parent.rotation, 'y', -Math.PI, Math.PI).name('Y Rotation');
+// lightFolder2.add(spotLight2Parent.rotation, 'z', -Math.PI, Math.PI).name('Z Rotation');
 
-// Add color controls
-lightFolder2.add(spotLight2.color, 'r', 0.0, 1.0).name('R');
-lightFolder2.add(spotLight2.color, 'g', 0.0, 1.0).name('G');
-lightFolder2.add(spotLight2.color, 'b', 0.0, 1.0).name('B');
+// // Add color controls
+// lightFolder2.add(spotLight2.color, 'r', 0.0, 1.0).name('R');
+// lightFolder2.add(spotLight2.color, 'g', 0.0, 1.0).name('G');
+// lightFolder2.add(spotLight2.color, 'b', 0.0, 1.0).name('B');
 
-lightFolder2.open();
+// lightFolder2.open();
 
 
 // assets
@@ -361,6 +376,7 @@ function animate() {
   // pointLightHelper.update();
   // spotLightHelper2.update();
   renderer.render(scene, camera);
+  // composer.render();
 }
 
 animate();
